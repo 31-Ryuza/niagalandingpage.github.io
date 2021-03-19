@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Grafik Temperatur</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+
+    <div id="container"></div>
+
+<script>
+    Highcharts.chart('container', {
+
+chart: {
+    type: 'column'
+},
+
+title: {
+    text: 'Target Projects'
+},
+
+xAxis: {
+    categories: ['Poster', 'Web Design', 'Logo']
+},
+
+yAxis: {
+    allowDecimals: false,
+    min: 0,
+    title: {
+        text: 'Total Projects'
+    }
+},
+
+tooltip: {
+    formatter: function () {
+        return '<b>' + this.x + '</b><br/>' +
+            this.series.name + ': ' + this.y + '<br/>' +
+            'Total: ' + this.point.stackTotal;
+    }
+},
+
+plotOptions: {
+    column: {
+        stacking: 'normal'
+    }
+},
+
+series: [{
+    name: 'Azhar',
+    data: [5, 3, 4],
+}, {
+    name: 'Ardi',
+    data: [3, 4, 4],
+}, {
+    name: 'Ryuza',
+    data: [2, 5, 6],
+}]
+});
+</script>
